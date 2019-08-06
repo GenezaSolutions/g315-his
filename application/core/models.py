@@ -5,10 +5,21 @@ from django.db import models
 class  Patient(models.Model):
 	first_name = models.CharField(max_length=80)
 	last_name = models.CharField(max_length=80)
-	age_firstentry = models.IntegerField(default = 0)
+	birth_date = models.DateField()
 	gender = [
     ('M', 'Male'),
     ('F', 'Female'),
     ('US', 'Unspecified'),
-    
 		]
+	father_name = models.CharField(max_length=80)
+	state = models.CharField(max_length=80)
+	district = models.CharField(max_length=40)
+	mobile = models.IntegerField()
+	ID_number = models.IntegerField()
+	ID_type = models.CharField(max_length=40)
+	city = models.CharField(max_length=40)
+	pincode = models.CharField(max_length=6)
+	
+
+
+
