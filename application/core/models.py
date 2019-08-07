@@ -19,6 +19,8 @@ class  Patient(models.Model):
 	ID_type = models.CharField(max_length=40)
 	city = models.CharField(max_length=40)
 	pincode = models.CharField(max_length=6)
+	village = models.CharField(max_length=40)
+	
 	
 
 
