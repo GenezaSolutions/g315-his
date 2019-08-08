@@ -13,12 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
 from django.conf.urls import url, include
 from django.contrib.auth.models import User
+
 from django.contrib import admin
 from django.urls import path
 from rest_framework import routers, serializers, viewsets
-
+from core.views import PatientViewSet
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -32,11 +34,13 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 
+
 router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
+router.register(r'Patients', PatientViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
+
