@@ -1,6 +1,6 @@
 # g315-his
 
-*Health Information System developed in Python / Django / PostgreSQL*
+*Health Information System developed in Python / Django / Vue.js / PostgreSQL*
 
 MIT LICENSE Copyright 2019 
 
