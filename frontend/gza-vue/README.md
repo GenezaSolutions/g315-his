@@ -1,4 +1,4 @@
-# geneza-vue
+# gza-vue
 
 ## Project setup
 ```
