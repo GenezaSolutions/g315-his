@@ -1,4 +1,4 @@
-# g315-vue
+# geneza-vue
 
 ## Project setup
 ```
