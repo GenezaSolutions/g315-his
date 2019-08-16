@@ -22,6 +22,3 @@ class  Patient(models.Model):
 	pincode = models.CharField(max_length=6)
 	village = models.CharField(max_length=40)
 	
-	
-
-

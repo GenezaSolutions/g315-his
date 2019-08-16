@@ -2,7 +2,7 @@
   <div class="about">
     <p>g315-his
 
-Health Information System developed in Python / Django / Vue.js / PostgreSQL
+Health1 Information System developed in Python / Django / Vue.js / PostgreSQL
 
 MIT LICENSE Copyright 2019
 
