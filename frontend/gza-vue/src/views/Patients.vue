@@ -46,8 +46,8 @@ export default {
   data () {
     return {
       loading: false,
-      patients: null,
-      search: null,
+      patients: '',
+      search: '',
       
     }
   },
