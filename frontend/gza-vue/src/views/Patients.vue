@@ -3,7 +3,13 @@
     <p v-if="loading">Loading...</p>
     <div v-else>
       <h3 class="heading" style="text-align:left">Patients</h3>
-      <input  v-model = "searchstring" placeholder ="Search here">
+      <input v-model= "search" placeholder ="Search here">
+
+
+      
+  </div>
+
+
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -14,14 +20,20 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="patient in all_patients" v-bind:key="patient">
+          <tr v-for="patient in filteredPatients" v-bind:key="patient">
             <td>{{ patient.id }}</td>
             <td>{{ patient.first_name + " " + patient.last_name }}</td>
             <td>{{ patient.email }}</td>
           </tr>
         </tbody>
       </table>
+
+
+
+   
     </div>
+
+   
   </div>
 </template>
 
@@ -33,18 +45,34 @@ export default {
   data () {
     return {
       loading: false,
-      all_patients: null
+      patients: null,
+      search: null,
+      
     }
   },
   mounted () {
     this.loading = true;
     axios
       .get('http://localhost:8000/Patients/?format=json')
-      .then(response => (this.all_patients = response.data))
+      .then(response => (this.patients = response.data))
       .catch(error => console.log(error))
       .finally(() => this.loading = false)
+  },
+
+
+computed: {
+    filteredPatients() {
+      return this.patients.filter(patient => {
+        return patient.first_name.includes(this.search)
+      })
+    }
   }
 }
+
+
+
+
+
 </script>
 
 <style>
