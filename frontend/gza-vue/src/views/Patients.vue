@@ -4,6 +4,7 @@
     <div v-else>
       <h3 class="heading" style="text-align:left">Patients</h3>
       <input v-model= "search" placeholder ="Search here">
+      <br></br>
 
 
       
@@ -57,6 +58,7 @@ export default {
       .then(response => (this.patients = response.data))
       .catch(error => console.log(error))
       .finally(() => this.loading = false)
+      
   },
 
 
