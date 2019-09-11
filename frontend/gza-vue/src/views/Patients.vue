@@ -2,8 +2,8 @@
   <div id="app" class="container">
     <p v-if="loading">Loading...</p>
     <div v-else>
-      <h3 class="heading" style="text-align:left">Patients</h3>
-      <input v-model= "search" placeholder ="Search here">
+      <h3 class="heading" style="text-align:left">Patients List</h3>
+      <input id="lens" v-model= "search" placeholder ="Search here">
       <br></br>
 
 
@@ -16,6 +16,7 @@
           <tr>
             <th scope="col">ID</th>
             <th scope="col">Name</th>
+            <th scope="col">Mobile</th>
             <th scope="col">Email</th>
           
            
@@ -25,6 +26,7 @@
           <tr v-for="patient in filteredPatients" v-bind:key="patient">
             <td>{{ patient.id }}</td>
             <td>{{ patient.first_name + " " + patient.last_name }}</td>
+            <td>{{ patient.mobile }}</td>
             <td>{{ patient.email }}</td>
           </tr>
         </tbody>
@@ -60,14 +62,31 @@ export default {
       .finally(() => this.loading = false)
       
   },
+
+
+
+
 computed: {
     filteredPatients() {
       return this.patients.filter(patient => {
-        return `${patient.first_name} ${patient.last_name}`.includes(this.search);
-        
-      })
-    }
+       return `${patient.first_name} ${patient.last_name}`.includes(this.search);
+     
+    })
   }
+//ALTERNATE METHOD TO EXPLORE
+//filteredPatients: function(search, patients) {
+//    const terms = search.toLowercase()
+//    return patients.filter(patient => {
+//        return patient.first_name.toLowercase().indexOf(terms) >= 0 || patient.last_name.toLowercase().indexOf(terms) >= 0
+//    })
+//
+
+}
+
+
+ 
+ 
+
 }
 </script>
 
@@ -79,4 +98,11 @@ computed: {
 .heading {
   margin-bottom: 30px;
 }
+
+#lens {
+
+position: relative;
+left: -468px;
+}
+ 
 </style>
