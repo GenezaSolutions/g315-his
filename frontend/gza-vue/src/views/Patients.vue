@@ -17,6 +17,7 @@
             <th scope="col">ID</th>
             <th scope="col">Name</th>
             <th scope="col">Email</th>
+          
            
           </tr>
         </thead>
@@ -40,7 +41,6 @@
 
 <script>
 import axios from "axios";
-
 export default {
   name: 'app',
   data () {
@@ -60,21 +60,15 @@ export default {
       .finally(() => this.loading = false)
       
   },
-
-
 computed: {
     filteredPatients() {
       return this.patients.filter(patient => {
-        return patient.first_name.includes(this.search)
+        return `${patient.first_name} ${patient.last_name}`.includes(this.search);
+        
       })
     }
   }
 }
-
-
-
-
-
 </script>
 
 <style>
