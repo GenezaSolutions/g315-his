@@ -69,7 +69,7 @@ export default {
 computed: {
     filteredPatients() {
       return this.patients.filter(patient => {
-       return `${patient.first_name} ${patient.last_name}`.includes(this.search);
+       return `${patient.first_name} ${patient.last_name} ${patient.email} ${patient.mobile} ${patient.id}`.includes(this.search);
      
     })
   }
