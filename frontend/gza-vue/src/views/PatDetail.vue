@@ -2,7 +2,7 @@
   <div id="PatientList" class="container">
     <p v-if="loading">Loading...</p>
     <div v-else>
-      <h3 class="heading" style="text-align:left">Patients List</h3>
+      <h3 class="heading" style="text-align:left">{{$route.params.id}}{{patientID}}</h3>
       <input id="lens" v-model= "search" placeholder ="Search here">
       <br></br>
 
@@ -52,6 +52,7 @@ export default {
       loading: false,
       patients: '',
       search: '',
+      patientID: this.$route.params.id
       
     }
   },
@@ -71,7 +72,7 @@ export default {
 computed: {
     filteredPatients() {
       return this.patients.filter(patient => {
-       return `${patient.first_name} ${patient.last_name} ${patient.email} ${patient.mobile} ${patient.id}`.includes(this.search);
+       return `${patient.id}`.includes(this.$route.params.id);
      
     })
   }

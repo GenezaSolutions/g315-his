@@ -2,7 +2,7 @@
   <div id="PatientList" class="container">
     <p v-if="loading">Loading...</p>
     <div v-else>
-      <h3 class="heading" style="text-align:left">Patients List</h3>
+      <h3 class="heading" style="text-align:left">{{$route.params.id}}</h3>
       <input id="lens" v-model= "search" placeholder ="Search here">
       <br></br>
 
@@ -24,7 +24,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="patient in filteredPatients" v-bind:key="patient">
+          <tr v-bind:key="patient">
             <td>{{ patient.id }}</td>
             <td>{{ patient.first_name + " " + patient.last_name }}</td>
             <td>{{ patient.mobile }}</td>
@@ -50,16 +50,17 @@ export default {
   data () {
     return {
       loading: false,
-      patients: '',
-      search: '',
+      patient: '',
+      
       
     }
   },
   mounted () {
     this.loading = true;
+    
     axios
-      .get('http://localhost:8000/Patients/?format=json')
-      .then(response => (this.patients = response.data))
+      .get('http://localhost:8000/Patients/'+ this.$route.params.id +'/?format=json')
+      .then(response => (this.patient = response.data))
       .catch(error => console.log(error))
       .finally(() => this.loading = false)
       
@@ -68,20 +69,7 @@ export default {
 
 
 
-computed: {
-    filteredPatients() {
-      return this.patients.filter(patient => {
-       return `${patient.first_name} ${patient.last_name} ${patient.email} ${patient.mobile} ${patient.id}`.includes(this.search);
-     
-    })
-  }
-//ALTERNATE METHOD TO EXPLORE
-//filteredPatients: function(search, patients) {
-//    const terms = search.toLowercase()
-//    return patients.filter(patient => {
-//        return patient.first_name.toLowercase().indexOf(terms) >= 0 || patient.last_name.toLowercase().indexOf(terms) >= 0
-//    })
-//
+
 
 }
 
@@ -89,7 +77,7 @@ computed: {
  
  
 
-}
+
 </script>
 
 <style>
