@@ -57,28 +57,30 @@ export default {
       
     }
   },
-  mounted () {
+  created () {
     
+    this.fetchData();
     
-    axios
-      .get('http://localhost:8000/Patients/'+ this.$route.params.id +'/?format=json')
-      .then(response => (this.patient = Object.assign({}, this.patient, response.data)))
-      .catch(error => console.log(error))
-     
       
   },
  
  watch: {
-  '$route.params.id' () {
+  '$route': 'fetchData'
 
-    axios
+  
+  },
+
+
+methods: { fetchData () {
+  axios
       .get('http://localhost:8000/Patients/'+ this.$route.params.id +'/?format=json')
       .then(response => (this.patient = Object.assign({}, this.patient, response.data)))
       .catch(error => console.log(error))
-     
-      
-    // reload the data here
-  }
+     }
+
+  
+
+
 }
 
 
