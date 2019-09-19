@@ -1,7 +1,8 @@
 <template>
   <div id="PatientList" class="container">
     <div>
-      <h3 class="heading" style="text-align:left">ID {{$route.params.id}}</h3>
+      <h3 class="heading" style="text-align:left">Patient Record</h3>
+      <h4 class="heading" style="text-align:left"> <router-link :to="{path: '/patients/'}">Back</router-link></h4>
         <br />
       <br />
     </div>

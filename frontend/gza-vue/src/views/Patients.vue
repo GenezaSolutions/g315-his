@@ -25,7 +25,7 @@
         </thead>
         <tbody>
           <tr v-for="patient in filteredPatients" v-bind:key="patient">
-            <td><router-link :to="{name: 'patientdetail', params: { id: patient.id}}">{{ patient.id }}</router-link></td>
+            <td>{{ patient.id }}</td>
             <td>{{ patient.first_name + " " + patient.last_name }}</td>
             <td>{{ patient.mobile }}</td>
             <td>{{ patient.email }}</td>
