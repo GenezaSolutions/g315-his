@@ -2,7 +2,7 @@
   <div id="PatientList" class="container">
     <div>
       <h3 class="heading" style="text-align:left">ID {{$route.params.id}}</h3>
-      <br />
+        <br />
       <br />
     </div>
 
@@ -21,7 +21,7 @@
           <td>{{ patient.first_name + " " + patient.last_name }}</td>
           <td>{{ patient.mobile }}</td>
           <td>{{ patient.email }}</td>
-          <td>></td>
+          
         </tr>
       </tbody>
     </table>

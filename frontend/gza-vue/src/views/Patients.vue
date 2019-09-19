@@ -18,7 +18,7 @@
             <th scope="col">Name</th>
             <th scope="col">Mobile</th>
             <th scope="col">Email</th>
-            <th>Detail</th>
+            <th>Details</th>
           
            
           </tr>
@@ -29,7 +29,7 @@
             <td>{{ patient.first_name + " " + patient.last_name }}</td>
             <td>{{ patient.mobile }}</td>
             <td>{{ patient.email }}</td>
-            <td>></td>
+            <td><router-link :to="{name: 'patientdetail', params: { id: patient.id}}">></router-link></td>
           </tr>
         </tbody>
       </table>
