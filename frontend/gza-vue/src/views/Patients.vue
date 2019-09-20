@@ -3,7 +3,7 @@
     <p v-if="loading">Loading...</p>
     <div v-else>
       <h3 class="heading" style="text-align:left">Patients List</h3>
-      <input id="lens" v-model= "search" placeholder ="Search here">
+      <input id="lens" v-model= "search" placeholder ="Search patients">
       <br></br>
 
 
